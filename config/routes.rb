@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :stations, only: [:index]
+  resources :stations, only: :index
 end

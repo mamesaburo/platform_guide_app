@@ -1,0 +1,24 @@
+<div class="main">
+  <div class="content">
+    <div class="item-contents">
+      <ul class='item-lists'>
+        <% @stations.each do |station| %>
+        <li class='list'>
+          <%= link_to stations_path(station.id), method: :get do %>
+          <div class="item-img-content">
+            <% if station.image.attached? %>
+            <%= image_tag station.image.variant(resize:'250x200'), class: "item-image" %>
+            <% end %>
+          </div>
+          <div class='item-info'>
+            <h3 class='item-name'>
+              <%= station.name %>
+            </h3>
+          </div>
+          <% end %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

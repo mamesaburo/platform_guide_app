@@ -4,7 +4,7 @@
       <ul class='item-lists'>
         <% @stations.each do |station| %>
         <li class='list'>
-          <%= link_to stations_path(station.id), method: :get do %>
+          <%= link_to station_path(station.id), method: :get do %>
           <div class="item-img-content">
             <% if station.image.attached? %>
             <%= image_tag station.image.variant(resize:'250x200'), class: "item-image" %>

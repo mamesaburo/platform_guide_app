@@ -4,5 +4,14 @@
       <p><%= @station.name %>駅
       </p>
     </div>
+    <div class="station-form">
+      <%= form_with url: station_path(@station), local: true, method: :get do |f| %>
+      <div>
+        <div><%= f.label :platform_id, "プラットフォーム番号", class: "search-input" %></div>
+        <div><%= f.search_field :platform_id %>番フォームに到着</div>
+      </div>
+      <%= f.submit "検索", class: 'search-q-btn' %>
+      <% end %>
+    </div>
   </div>
 </div>

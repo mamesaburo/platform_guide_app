@@ -13,5 +13,25 @@
       <%= f.submit "検索", class: 'search-q-btn' %>
       <% end %>
     </div>
+    <div class=platform-elevator >
+      <% if @platform %>
+        <%= @platform.elevator.name %>
+      <% end %>
+    </div>
+    <div class=platform-escalator >
+      <% if @platform %>
+        <%= @platform.escalator.name %>
+      <% end %>
+    </div>
+    <div class=platform-toilet >
+      <% if @platform %>
+        <%= @platform.toilet.name %>
+      <% end %>
+    </div>
+    <div class=platform-coinlocker >
+      <% if @platform %>
+        <%= @platform.coinlocker.name %>
+      <% end %>
+    </div>
   </div>
 </div>

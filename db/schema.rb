@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_29_123441) do
+ActiveRecord::Schema.define(version: 2021_01_30_034934) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2021_01_29_123441) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "platforms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "number"
+    t.integer "elevator_id"
+    t.integer "escalator_id"
+    t.integer "toilet_id"
+    t.integer "coinlocker_id"
+    t.bigint "station_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["station_id"], name: "index_platforms_on_station_id"
+  end
+
   create_table "stations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -40,4 +52,5 @@ ActiveRecord::Schema.define(version: 2021_01_29_123441) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "platforms", "stations"
 end

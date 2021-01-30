@@ -1,4 +1,4 @@
-class Escalator < ApplicationRecord
+class Escalator < ActiveHash::Base
   self.data = [
     { id: 0, name: '---' },
     { id: 1, name: '進行方向 前' },

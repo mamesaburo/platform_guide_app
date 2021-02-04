@@ -6,32 +6,78 @@
     </div>
     <div class="station-form">
       <%= form_with url: station_path(@station), local: true, method: :get do |f| %>
-      <div>
-        <div><%= f.label :platform_id, "プラットフォーム番号", class: "search-input" %></div>
-        <div><%= f.search_field :platform_id %>番フォームに到着</div>
+      <div class="station-form-search">
+        <div class="search-form">
+          <div><%= f.label :platform_id, "プラットフォーム番号", class: "search-input" %>
+            <div class="cp_iptxt">
+              <label class="ef">
+                <%= f.search_field :platform_id, class: "search-form2" %>
+                <p class="form-message">番フォームに到着</p>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div><%= f.submit "Search!", class: "button2" %>
+        </div>
       </div>
-      <%= f.submit "検索", class: 'search-q-btn' %>
       <% end %>
     </div>
-    <div class=platform-elevator >
-      <% if @platform %>
-        <%= @platform.elevator.name %>
-      <% end %>
+    <div class="search-platform">
+      <table>
+        <tr>
+          <th>到着ホーム</th>
+          <td>
+          <% if @platform %>
+            <div class="form-text">
+              <%= ("#{@platform.number}番ホーム") %>
+            </div>
+          <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>エレベーター設置場所</th>
+          <td>
+          <% if @platform %>
+            <div class="elevator-text">
+              <%= ("電車進行方向 #{@platform.elevator.name}") %>
+            </div>
+          <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>エスカレーター設置場所</th>
+          <td>
+            <% if @platform %>
+              <div class="escalator-text">
+                <%= ("電車進行方向 #{@platform.escalator.name}") %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>トイレ設置場所</th>
+          <td>
+            <% if @platform %>
+              <div class="toilet-text">
+                <%= ("電車進行方向 #{@platform.toilet.name}") %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>コインロッカー設置場所</th>
+          <td>
+            <% if @platform %>
+              <div class="coinlocker-text">
+                <%= ("電車進行方向 #{@platform.coinlocker.name}") %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+      </table>
     </div>
-    <div class=platform-escalator >
-      <% if @platform %>
-        <%= @platform.escalator.name %>
-      <% end %>
-    </div>
-    <div class=platform-toilet >
-      <% if @platform %>
-        <%= @platform.toilet.name %>
-      <% end %>
-    </div>
-    <div class=platform-coinlocker >
-      <% if @platform %>
-        <%= @platform.coinlocker.name %>
-      <% end %>
+    <div class="wrap-show">
+      <%= link_to '戻る', stations_path, method: :get, class:'button3' %>
     </div>
   </div>
 </div>

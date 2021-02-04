@@ -5,9 +5,13 @@
 .main {
   background-image: image-url(image-path("cologne-main-station-1772337_1920.jpg"));
   background-size: cover;
+  background-color:rgba(255,255,255,0.4);
+  background-blend-mode:lighten;
 }
 
 .station-show {
   background-image: image-url(image-path('dresden-4421905_1920.jpg'));
   background-size: cover;
+  background-color:rgba(255,255,255,0.2);
+  background-blend-mode:lighten;
 }

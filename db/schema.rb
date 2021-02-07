@@ -34,11 +34,11 @@ ActiveRecord::Schema.define(version: 2021_01_30_034934) do
   end
 
   create_table "platforms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "number"
-    t.integer "elevator_id"
-    t.integer "escalator_id"
-    t.integer "toilet_id"
-    t.integer "coinlocker_id"
+    t.integer "number", null: false
+    t.integer "elevator_id", null: false
+    t.integer "escalator_id", null: false
+    t.integer "toilet_id", null: false
+    t.integer "coinlocker_id", null: false
     t.bigint "station_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2021_01_30_034934) do
   end
 
   create_table "stations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
